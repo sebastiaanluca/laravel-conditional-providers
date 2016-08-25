@@ -1,0 +1,49 @@
+{
+    "name": "sebastiaanluca/laravel-conditional-providers",
+    "type": "library",
+    "description": "Load service providers based on certain conditions.",
+    "keywords": [
+        "sebastiaanluca",
+        "sebastiaanluca/laravel-conditional-providers"
+    ],
+    "homepage": "https://github.com/sebastiaanluca/laravel-conditional-providers",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastiaan Luca",
+            "email": "hello@sebastiaanluca.com",
+            "homepage": "http://www.sebastiaanluca.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "~5.6|~7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "~4.0||~5.0",
+        "scrutinizer/ocular": "~1.1",
+        "squizlabs/php_codesniffer": "~2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "sebastiaanluca\\sebastiaanluca/laravel-conditional-providers\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "sebastiaanluca\\sebastiaanluca/laravel-conditional-providers\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "format": "phpcbf --standard=psr2 src/"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
