@@ -23,6 +23,10 @@ class EnvironmentProvidersServiceProvider extends ServiceProvider
         $environment = $this->app->environment();
         $providers = $this->app['config']->get('app.' . $environment . '_providers');
         
+        if (count($providers) === 0) {
+            return;
+        }
+        
         foreach ($providers as $provider) {
             $this->app->register($provider);
         }
