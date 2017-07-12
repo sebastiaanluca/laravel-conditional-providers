@@ -5,7 +5,7 @@ namespace SebastiaanLuca\ConditionalProviders\Providers;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class EnvironmentProvidersServiceProvider
+ * Class ConditionalProvidersServiceProvider
  *
  * Registers all service providers for the current environment as defined in the configuration.
  *
@@ -13,7 +13,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package SebastiaanLuca\ConditionalProviders\Providers
  */
-class EnvironmentProvidersServiceProvider extends ServiceProvider
+class ConditionalProvidersServiceProvider extends ServiceProvider
 {
     /**
      * Register the application services.
@@ -22,11 +22,11 @@ class EnvironmentProvidersServiceProvider extends ServiceProvider
     {
         $environment = $this->app->environment();
         $providers = $this->app['config']->get('app.' . $environment . '_providers');
-        
+
         if (count($providers) === 0) {
             return;
         }
-        
+
         foreach ($providers as $provider) {
             $this->app->register($provider);
         }
