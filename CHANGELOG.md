@@ -6,6 +6,8 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 1.0.0 (2017-07-13)
+
 ### Added
 
 - Added the conditional environment service provider
