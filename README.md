@@ -12,7 +12,13 @@
 
 __Load Laravel service providers based on the current environment.__
 
-Specify the service providers to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider! 
+Specify the service providers to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider!
+
+Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5) and others. 
+
+## Table of contents
+
+TODO
 
 ## Requirements
 
