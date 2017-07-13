@@ -6,5 +6,15 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 1.0.0 (2017-07-13)
+
 ### Added
-- Conditional environment service provider
+
+- Added the conditional environment service provider
+- Set up test environment and added tests
+- Written readme and guidelines
+- Added Laravel 5.5 auto-discovery
+
+### Changed
+
+- Renamed service provider to `\SebastiaanLuca\ConditionalProviders\Providers\ConditionalProvidersServiceProvider`
