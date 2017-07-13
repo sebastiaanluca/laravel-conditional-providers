@@ -18,7 +18,59 @@ Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-se
 
 ## Table of contents
 
-TODO
+- [What does it solve?](#what-does-it-solve)
+- [Requirements](#requirements)
+- [How to install](#how-to-install)
+    - [Laravel 5.5](#laravel-55)
+    - [Laravel 5.4](#laravel-54)
+- [How to use](#how-to-use)
+- [License](#license)
+- [Change log](#change-log)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [Security](#security)
+- [Credits](#credits)
+- [About](#about)
+
+## What does it solve?
+
+Say you're using a package like [barryvdh/laravel-ide-helper](https://github.com/barryvdh/laravel-ide-helper) in your project. If you've followed its installation instructions and require it only in development environments (like you should), you'd do the following:
+
+```bash
+composer require barryvdh/laravel-ide-helper --dev
+```
+
+And then add the service provider to your app's config providers array:
+
+```php
+'providers' => [
+
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+]
+```
+
+Now when you run `composer install --no-dev` in your production environment to install all but development packages, this will throw an exception. Laravel will try to load the registered service provider class which it can't find, because the package is not installed.
+
+```
+[Symfony\Component\Debug\Exception\FatalThrowableError]
+Class 'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider' not found
+```
+
+Of course you can —per the instructions— conditionally load the provider manually in the register method of the `app/Providers/AppServiceProvider.php` file:
+
+```php
+public function register()
+{
+    if ($this->app->environment() !== 'production') {
+        $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+    }
+}
+```
+
+But you'd have to do this for each development package and each environment you don't want it loaded in, which is hardly maintainable and pollutes your application-specific code.
+
+Enter Laravel conditional providers [to easily do all of this](#how-to-use) in your main application config file like you would with any other service provider!
 
 ## Requirements
 
@@ -55,7 +107,45 @@ Add the service provider to the `providers` array in your `config/app.php` file:
 
 ## How to use
 
-TODO
+Once you're set up, simply __add a providers array per environment__ to your `config/app.php` file:
+
+```php
+'providers' => [
+
+    // Contains your global providers which will load in any environment
+
+],
+
+'local_providers' => [
+
+    // Contains your 'local' environment providers
+
+    // Mostly used to load debug helpers, optimization tools, et cetera
+
+    Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+],
+
+'production_providers' => [
+
+    // Contains your 'production' environment providers
+
+    // Great for when you only want to get analytics or
+    // bug reports in production and disable the provider
+    // entirely when developing.
+
+],
+```
+
+Each providers key is __optional__ and can be empty —so you could just use the `local_providers` array or none at all.
+
+The example above will do the following in a `local` environment:
+
+- Load every provider from `providers`
+- Load every provider from `local_providers`
+- Ignore everything in `production_providers`
+
+All done! Now your app service provider is clean and you get a better view on what's loaded and when, with the added benefit of enabling or disabling packages based on environment.
 
 ## License
 
