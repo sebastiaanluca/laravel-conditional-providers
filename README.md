@@ -14,7 +14,7 @@ __Load Laravel service providers based on the current environment.__
 
 Specify the service providers to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider!
 
-Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5) and others. 
+Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5) and others.
 
 ## Table of contents
 
@@ -123,6 +123,7 @@ Once you're set up, simply __add a providers array per environment__ to your `co
     // Mostly used to load debug helpers, optimization tools, et cetera
 
     Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+    Barryvdh\Debugbar\ServiceProvider::class,
 
 ],
 
@@ -137,13 +138,41 @@ Once you're set up, simply __add a providers array per environment__ to your `co
 ],
 ```
 
-Each providers key is __optional__ and can be empty —so you could just use the `local_providers` array or none at all.
+Also it is possible to simply __add a facades/aliases array per environment__ to your `config/app.php` file:
+
+```php
+'aliases' => [
+
+    // Contains your global aliases which will load in any environment
+
+],
+
+'local_aliases' => [
+
+    // Contains your 'local' environment aliases/facades
+
+    'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+],
+
+'production_aliases' => [
+
+    // Contains your 'production' environment aliases/facades
+
+],
+```
+
+Each providers / aliases key is __optional__ and can be empty —so you could just use the `local_providers` array or none at all.
 
 The example above will do the following in a `local` environment:
 
 - Load every provider from `providers`
 - Load every provider from `local_providers`
 - Ignore everything in `production_providers`
+
+- Load every facade/alias from `aliases`
+- Load every facade/alias from `local_aliases`
+- Ignore everything in `production_aliases`
 
 All done! Now your app service provider is clean and you get a better view on what's loaded and when, with the added benefit of enabling or disabling packages based on environment.
 

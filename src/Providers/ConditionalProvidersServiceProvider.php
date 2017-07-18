@@ -13,14 +13,16 @@ class ConditionalProvidersServiceProvider extends ServiceProvider
     {
         $environment = $this->app->environment();
 
-        $providers = $this->app['config']->get('app.' . $environment . '_providers');
-
-        if (! $providers) {
-            return;
-        }
+        $providers = $this->app['config']->get('app.' . $environment . '_providers', []);
 
         foreach ($providers as $provider) {
             $this->app->register($provider);
+        }
+
+        $facades = $this->app['config']->get('app.' . $environment . '_aliases', []);
+
+        foreach ($facades as $alias => $facade) {
+            $this->app->alias($alias, $facade);
         }
     }
 }
