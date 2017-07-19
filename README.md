@@ -10,9 +10,9 @@
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Load Laravel service providers based on the current environment.__
+__Load Laravel service providers and facades based on the current environment.__
 
-Specify the service providers to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider!
+Specify the service providers and facades to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider and facade!
 
 Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5) and others.
 
@@ -70,7 +70,7 @@ public function register()
 
 But you'd have to do this for each development package and each environment you don't want it loaded in, which is hardly maintainable and pollutes your application-specific code.
 
-Enter Laravel conditional providers [to easily do all of this](#how-to-use) in your main application config file like you would with any other service provider!
+Enter Laravel conditional providers [to easily do all of this](#how-to-use) in your main application config file!
 
 ## Requirements
 
@@ -107,6 +107,8 @@ Add the service provider to the `providers` array in your `config/app.php` file:
 
 ## How to use
 
+### Conditional providers
+
 Once you're set up, simply __add a providers array per environment__ to your `config/app.php` file:
 
 ```php
@@ -138,7 +140,19 @@ Once you're set up, simply __add a providers array per environment__ to your `co
 ],
 ```
 
-Also it is possible to simply __add a facades/aliases array per environment__ to your `config/app.php` file:
+Each providers key is __optional__ and can be empty —so you could just use the `local_providers` array or none at all.
+
+The example above will do the following in a `local` environment:
+
+- Load every provider from `providers`
+- Load every provider from `local_providers`
+- Ignore everything in `production_providers`
+
+All done! Now your app service provider is clean and you get a better view on what's loaded and when, with the added benefit of enabling or disabling packages based on environment.
+
+### Conditional aliases
+
+In addition to conditionally loading providers, this workflow is also available for aliases/facades. __Add a facades/aliases array per environment__ to your `config/app.php` file like so:
 
 ```php
 'aliases' => [
@@ -162,19 +176,7 @@ Also it is possible to simply __add a facades/aliases array per environment__ to
 ],
 ```
 
-Each providers / aliases key is __optional__ and can be empty —so you could just use the `local_providers` array or none at all.
-
-The example above will do the following in a `local` environment:
-
-- Load every provider from `providers`
-- Load every provider from `local_providers`
-- Ignore everything in `production_providers`
-
-- Load every facade/alias from `aliases`
-- Load every facade/alias from `local_aliases`
-- Ignore everything in `production_aliases`
-
-All done! Now your app service provider is clean and you get a better view on what's loaded and when, with the added benefit of enabling or disabling packages based on environment.
+That's it! This will load the `Debugbar` facade only in the local environment.
 
 ## License
 
