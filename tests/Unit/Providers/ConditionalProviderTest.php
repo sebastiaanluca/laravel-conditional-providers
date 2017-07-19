@@ -1,12 +1,14 @@
 <?php
 
-namespace SebastiaanLuca\ConditionalProviders\Tests\Unit;
+namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Providers;
 
 use SebastiaanLuca\ConditionalProviders\Tests\Helpers\MyLocalServiceProvider;
 use SebastiaanLuca\ConditionalProviders\Tests\Helpers\MyStagingServiceProvider;
-use SebastiaanLuca\ConditionalProviders\Tests\TestCase;
 
-class ConditionalProviderTest extends TestCase
+/**
+ * @runTestsInSeparateProcesses
+ */
+class ConditionalProviderTest extends ConditionalProviderTestCase
 {
     /**
      * @var string
@@ -16,7 +18,7 @@ class ConditionalProviderTest extends TestCase
     public function test it loads all default providers()
     {
         // Excluding the package service provider
-        $this->assertTrue(count(config('app.providers')) > 1);
+        $this->assertTrue(count($this->app->getLoadedProviders()) > 1);
     }
 
     public function test it loads providers based on environment()
