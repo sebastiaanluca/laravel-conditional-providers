@@ -2,6 +2,7 @@
 
 namespace SebastiaanLuca\ConditionalProviders\Providers;
 
+use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class ConditionalProvidersServiceProvider extends ServiceProvider
@@ -21,8 +22,8 @@ class ConditionalProvidersServiceProvider extends ServiceProvider
 
         $facades = $this->app['config']->get('app.' . $environment . '_aliases', []);
 
-        foreach ($facades as $alias => $facade) {
-            $this->app->alias($alias, $facade);
+        foreach ($facades as $class => $name) {
+            AliasLoader::getInstance()->alias($class, $name);
         }
     }
 }
