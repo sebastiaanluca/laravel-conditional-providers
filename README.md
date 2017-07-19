@@ -14,7 +14,7 @@ __Load Laravel service providers and facades based on the current environment.__
 
 Specify the service providers and facades to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider and facade!
 
-Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5) and others.
+Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-service-providers-in-laravel-5), [Sven Luijten](https://github.com/svenluijten/env-providers), and others.
 
 ## Table of contents
 
@@ -24,6 +24,8 @@ Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-se
     - [Laravel 5.5](#laravel-55)
     - [Laravel 5.4](#laravel-54)
 - [How to use](#how-to-use)
+    - [Conditional providers](#conditional-providers)
+    - [Conditional aliases](#conditional-aliases)
 - [License](#license)
 - [Change log](#change-log)
 - [Testing](#testing)
