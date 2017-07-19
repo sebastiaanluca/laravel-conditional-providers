@@ -6,6 +6,9 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+- Added conditional loading of aliases (facades)
+- Refactored and fixed tests
+
 ## 1.0.0 (2017-07-13)
 
 ### Added
