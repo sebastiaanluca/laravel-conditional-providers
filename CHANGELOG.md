@@ -11,6 +11,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ### Fixed
 
 - Don't test against Laravel 5.6
+- Fix laravel/framework version requirement
 
 ## 2.0.0 (2018-09-04)
 
