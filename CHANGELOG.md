@@ -12,6 +12,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 - Code analyses
 
+### Changed
+
+- Renamed `phpunit.xml`
+
 ### Fixed
 
 - Don't test against Laravel 5.6
