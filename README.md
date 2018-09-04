@@ -21,8 +21,6 @@ Inspired by [Matt Staufer](https://mattstauffer.co/blog/conditionally-loading-se
 - [What does it solve?](#what-does-it-solve)
 - [Requirements](#requirements)
 - [How to install](#how-to-install)
-    - [Laravel 5.5](#laravel-55)
-    - [Laravel 5.4](#laravel-54)
 - [How to use](#how-to-use)
     - [Conditional providers](#conditional-providers)
     - [Conditional aliases](#conditional-aliases)
@@ -76,40 +74,20 @@ Enter Laravel conditional providers [to easily do all of this](#how-to-use) in y
 
 ## Requirements
 
-- PHP 7 or higher
-- Laravel 5.4 or higher
+- PHP 7.2 or higher
+- Laravel 5.7 or higher
 
 ## How to install
 
-### Laravel 5.5
-
-From Laravel 5.5 and onwards, this package supports auto-discovery. Just add the package to your project using composer and you're good to go!
-
 ```bash
 composer require sebastiaanluca/laravel-conditional-providers
-```
-
-### Laravel 5.4
-
-Install the package through Composer by using the following command:
-
-```bash
-composer require sebastiaanluca/laravel-conditional-providers
-```
-
-Add the service provider to the `providers` array in your `config/app.php` file:
-
-```php
-'providers' => [
-
-    SebastiaanLuca\ConditionalProviders\Providers\ConditionalProvidersServiceProvider::class,
-
-]
 ```
 
 ## How to use
 
 ### Conditional providers
+
+Disable Laravel service provider auto-discovery by adding it to your composer.json relevant section.
 
 Once you're set up, simply __add a providers array per environment__ to your `config/app.php` file:
 

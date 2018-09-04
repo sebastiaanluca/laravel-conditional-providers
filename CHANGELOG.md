@@ -6,6 +6,21 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+## 2.0.0 (2018-09-04)
+
+### Added
+
+- Run tests against Laravel 5.7
+
+### Changed
+
+- Formatted tests
+
+### Removed
+
+- Removed support for PHP 7.1 and lower
+- Removed support for Laravel 5.6 and lower
+
 ## 1.1.0 (2017-07-19)
 
 - Added conditional loading of aliases (facades)
@@ -22,4 +37,4 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ### Changed
 
-- Renamed service provider to `\SebastiaanLuca\ConditionalProviders\Providers\ConditionalProvidersServiceProvider`
+- Renamed service provider to `\SebastiaanLuca\ConditionalProviders\ConditionalProvidersServiceProvider`

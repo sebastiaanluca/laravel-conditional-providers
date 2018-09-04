@@ -15,16 +15,16 @@
             "name": "Sebastiaan Luca",
             "email": "hello@sebastiaanluca.com",
             "homepage": "https://www.sebastiaanluca.com",
-            "role": "Developer"
+            "role": "Author"
         }
     ],
     "require": {
-        "php": "^7",
-        "laravel/framework": "^5.4"
+        "laravel/framework": "^5.7",
+        "php": "^7.2"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.4.2",
-        "phpunit/phpunit": "^6.2"
+        "orchestra/testbench": "^3.7",
+        "phpunit/phpunit": "^7.3"
     },
     "autoload": {
         "psr-4": {
@@ -45,7 +45,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SebastiaanLuca\\ConditionalProviders\\Providers\\ConditionalProvidersServiceProvider"
+                "SebastiaanLuca\\ConditionalProviders\\ConditionalProvidersServiceProvider"
             ]
         }
     }

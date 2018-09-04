@@ -15,7 +15,10 @@ class EmptyConditionalProviderTest extends ConditionalProviderTestCase
      */
     protected $environment = 'testing';
 
-    public function test it can handle an environment without providers()
+    /**
+     * @test
+     */
+    public function it can handle an environment without providers() : void
     {
         $providers = $this->app->getLoadedProviders();
 
