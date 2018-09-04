@@ -14,7 +14,10 @@ class EmptyConditionalAliasTest extends ConditionalAliasTestCase
      */
     protected $environment = 'testing';
 
-    public function test it can handle an environment without aliases()
+    /**
+     * @test
+     */
+    public function it can handle an environment without aliases() : void
     {
         $aliases = AliasLoader::getInstance()->getAliases();
 

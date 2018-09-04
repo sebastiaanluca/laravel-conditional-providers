@@ -1,6 +1,6 @@
 <?php
 
-namespace SebastiaanLuca\ConditionalProviders\Providers;
+namespace SebastiaanLuca\ConditionalProviders;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
@@ -9,8 +9,10 @@ class ConditionalProvidersServiceProvider extends ServiceProvider
 {
     /**
      * Register the application services.
+     *
+     * @return void
      */
-    public function register()
+    public function register() : void
     {
         $environment = $this->app->environment();
 

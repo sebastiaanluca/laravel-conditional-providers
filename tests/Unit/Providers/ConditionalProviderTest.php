@@ -15,18 +15,27 @@ class ConditionalProviderTest extends ConditionalProviderTestCase
      */
     protected $environment = 'local';
 
-    public function test it loads all default providers()
+    /**
+     * @test
+     */
+    public function it loads all default providers() : void
     {
         // Excluding the package service provider
         $this->assertTrue(count($this->app->getLoadedProviders()) > 1);
     }
 
-    public function test it loads providers based on environment()
+    /**
+     * @test
+     */
+    public function it loads providers based on environment() : void
     {
         $this->assertArrayHasKey(MyLocalServiceProvider::class, $this->app->getLoadedProviders());
     }
 
-    public function test it does not load providers from other environments()
+    /**
+     * @test
+     */
+    public function it does not load providers from other environments() : void
     {
         $this->assertArrayNotHasKey(MyStagingServiceProvider::class, $this->app->getLoadedProviders());
     }

@@ -2,7 +2,7 @@
 
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Providers;
 
-use SebastiaanLuca\ConditionalProviders\Providers\ConditionalProvidersServiceProvider;
+use SebastiaanLuca\ConditionalProviders\ConditionalProvidersServiceProvider;
 use SebastiaanLuca\ConditionalProviders\Tests\Helpers\MyLocalServiceProvider;
 use SebastiaanLuca\ConditionalProviders\Tests\Helpers\MyStagingServiceProvider;
 use SebastiaanLuca\ConditionalProviders\Tests\TestCase;
@@ -13,8 +13,10 @@ class ConditionalProviderTestCase extends TestCase
      * Resolve application core configuration implementation.
      *
      * @param \Illuminate\Foundation\Application $app
+     *
+     * @return void
      */
-    protected function resolveApplicationConfiguration($app)
+    protected function resolveApplicationConfiguration($app) : void
     {
         parent::resolveApplicationConfiguration($app);
 
