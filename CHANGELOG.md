@@ -8,10 +8,15 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## 2.0.1 (2018-09-04)
 
+### Added
+
+- Code analyses
+
 ### Fixed
 
 - Don't test against Laravel 5.6
 - Fix laravel/framework version requirement
+- Optimized code using static code analyses
 
 ## 2.0.0 (2018-09-04)
 
