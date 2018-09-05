@@ -6,6 +6,10 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## Unreleased
 
+### Fixed
+
+- Fixed static code analyses
+
 ## 2.0.1 (2018-09-04)
 
 ### Changed
