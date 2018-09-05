@@ -17,18 +17,12 @@ class ConditionalAliasTest extends ConditionalAliasTestCase
      */
     protected $environment = 'local';
 
-    /**
-     * @test
-     */
-    public function it loads all default aliases() : void
+    public function test it loads all default aliases() : void
     {
         $this->assertTrue(count(AliasLoader::getInstance()->getAliases()) > 1);
     }
 
-    /**
-     * @test
-     */
-    public function it loads aliases based on environment() : void
+    public function test it loads aliases based on environment() : void
     {
         $aliases = AliasLoader::getInstance()->getAliases();
 
@@ -36,10 +30,7 @@ class ConditionalAliasTest extends ConditionalAliasTestCase
         $this->assertSame('SebastiaanLuca\\ConditionalProviders\\MyLocalFacade', $aliases['MyLocalFacade']);
     }
 
-    /**
-     * @test
-     */
-    public function it does not load aliases from other environments() : void
+    public function test it does not load aliases from other environments() : void
     {
         $this->assertArrayNotHasKey('MyStagingFacade', AliasLoader::getInstance()->getAliases());
     }

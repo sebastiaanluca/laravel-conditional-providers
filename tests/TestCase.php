@@ -17,8 +17,10 @@ class TestCase extends OrchestraTestCase
      * Resolve application core configuration implementation.
      *
      * @param \Illuminate\Foundation\Application $app
+     *
+     * @return void
      */
-    protected function resolveApplicationConfiguration($app)
+    protected function resolveApplicationConfiguration($app) : void
     {
         parent::resolveApplicationConfiguration($app);
 
