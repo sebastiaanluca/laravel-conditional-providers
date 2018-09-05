@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Aliases;
 
 use Illuminate\Foundation\AliasLoader;
