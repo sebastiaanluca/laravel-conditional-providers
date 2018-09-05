@@ -7,4 +7,3 @@
 
     <rule ref="./vendor/sebastiaanluca/php-codesniffer-ruleset/ruleset.xml"/>
 </ruleset>
-
