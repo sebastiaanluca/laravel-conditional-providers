@@ -32,6 +32,8 @@ install:
 - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-dist
 
 script:
+- composer validate --no-check-all --strict
+- vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1
 - vendor/bin/phpunit
 
 branches:

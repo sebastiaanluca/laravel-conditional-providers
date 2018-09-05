@@ -8,6 +8,13 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 
 ## 2.0.1 (2018-09-04)
 
+### Changed
+
+- Tweak code analyses
+- Add code analyses to tests
+
+## 2.0.1 (2018-09-04)
+
 ### Added
 
 - Code analyses

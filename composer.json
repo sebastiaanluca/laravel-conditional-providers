@@ -40,12 +40,12 @@
         }
     },
     "scripts": {
-        "validate-composer": "@composer validate --no-check-all --strict",
+        "composer-validate": "@composer validate --no-check-all --strict",
         "codesniffer-check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
         "codesniffer-fix": "vendor/bin/phpcbf --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 || exit 0",
         "test": "vendor/bin/phpunit",
-        "analyze": [
-            "@validate-composer",
+        "check": [
+            "@composer-validate",
             "@codesniffer-check",
             "@test"
         ]
