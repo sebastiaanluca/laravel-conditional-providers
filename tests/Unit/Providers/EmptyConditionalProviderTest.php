@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Providers;
 
 use SebastiaanLuca\ConditionalProviders\Tests\Helpers\MyLocalServiceProvider;
@@ -15,10 +17,7 @@ class EmptyConditionalProviderTest extends ConditionalProviderTestCase
      */
     protected $environment = 'testing';
 
-    /**
-     * @test
-     */
-    public function it can handle an environment without providers() : void
+    public function test it can handle an environment without providers() : void
     {
         $providers = $this->app->getLoadedProviders();
 

@@ -75,7 +75,7 @@ Enter Laravel conditional providers [to easily do all of this](#how-to-use) in y
 ## Requirements
 
 - PHP 7.2 or higher
-- Laravel 5.7 or higher
+- Laravel 5.8 or higher
 
 ## How to install
 
@@ -175,7 +175,7 @@ composer test
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details.
+Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CODE_OF_CONDUCT.md) for details.
 
 ## Security
 

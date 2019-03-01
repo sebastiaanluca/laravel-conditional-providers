@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Aliases;
 
 use SebastiaanLuca\ConditionalProviders\ConditionalProvidersServiceProvider;
@@ -20,13 +22,15 @@ class ConditionalAliasTestCase extends TestCase
 
         $app['config']->push('app.providers', ConditionalProvidersServiceProvider::class);
 
-        $app['config']->set('app.local_aliases', [
-            'MyLocalFacade' => 'SebastiaanLuca\\ConditionalProviders\\MyLocalFacade',
-        ]);
+        $app['config']->set(
+            'app.local_aliases',
+            ['MyLocalFacade' => 'SebastiaanLuca\\ConditionalProviders\\MyLocalFacade']
+        );
 
-        $app['config']->set('app.staging_aliases', [
-            'MyStagingFacade' => 'SebastiaanLuca\\ConditionalProviders\\MyStagingFacade',
-        ]);
+        $app['config']->set(
+            'app.staging_aliases',
+            ['MyStagingFacade' => 'SebastiaanLuca\\ConditionalProviders\\MyStagingFacade']
+        );
 
         $app['config']->set('app.testing_aliases', []);
     }

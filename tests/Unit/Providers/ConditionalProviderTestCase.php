@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Providers;
 
 use SebastiaanLuca\ConditionalProviders\ConditionalProvidersServiceProvider;
@@ -22,13 +24,15 @@ class ConditionalProviderTestCase extends TestCase
 
         $app['config']->push('app.providers', ConditionalProvidersServiceProvider::class);
 
-        $app['config']->set('app.local_providers', [
-            MyLocalServiceProvider::class,
-        ]);
+        $app['config']->set(
+            'app.local_providers',
+            [MyLocalServiceProvider::class]
+        );
 
-        $app['config']->set('app.staging_providers', [
-            MyStagingServiceProvider::class,
-        ]);
+        $app['config']->set(
+            'app.staging_providers',
+            [MyStagingServiceProvider::class]
+        );
 
         $app['config']->set('app.testing_providers', []);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SebastiaanLuca\ConditionalProviders\Tests\Unit\Aliases;
 
 use Illuminate\Foundation\AliasLoader;
@@ -14,10 +16,7 @@ class EmptyConditionalAliasTest extends ConditionalAliasTestCase
      */
     protected $environment = 'testing';
 
-    /**
-     * @test
-     */
-    public function it can handle an environment without aliases() : void
+    public function test it can handle an environment without aliases() : void
     {
         $aliases = AliasLoader::getInstance()->getAliases();
 
