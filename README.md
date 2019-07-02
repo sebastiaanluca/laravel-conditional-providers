@@ -4,13 +4,14 @@
 [![Software license][license-badge]](LICENSE.md)
 [![Build status][travis-badge]][link-travis]
 [![Total downloads][downloads-badge]][link-packagist]
+[![Total stars][stars-badge]][link-github]
 
 [![Read my blog][blog-link-badge]][link-blog]
 [![View my other packages and projects][packages-link-badge]][link-packages]
 [![Follow @sebastiaanluca on Twitter][twitter-profile-badge]][link-twitter]
 [![Share this package on Twitter][twitter-share-badge]][link-twitter-share]
 
-__Load Laravel service providers and facades based on the current environment.__
+**Load Laravel service providers and facades based on the current environment.**
 
 Specify the service providers and facades to load per environment directly in your configuration file. No more need to add lengthy blocks of conditionals to your `AppServiceProvider`, do it all in the app configuration file like you would with any service provider and facade!
 
@@ -87,7 +88,17 @@ composer require sebastiaanluca/laravel-conditional-providers
 
 ### Conditional providers
 
-Disable Laravel service provider auto-discovery by adding it to your composer.json relevant section.
+Disable auto-discovery of the package's service provider by adding it to your composer.json's relevant section:
+
+```json
+"extra": {
+    "laravel": {
+        "dont-discover": [
+            "barryvdh/laravel-debugbar"
+        ]
+    }
+},
+```
 
 Once you're set up, simply __add a providers array per environment__ to your `config/app.php` file:
 
@@ -192,24 +203,26 @@ My name is Sebastiaan and I'm a freelance Laravel developer specializing in buil
 
 Have a project that could use some guidance? Send me an e-mail at [hello@sebastiaanluca.com][link-author-email]!
 
-[version-badge]: https://poser.pugx.org/sebastiaanluca/laravel-conditional-providers/version
-[license-badge]: https://img.shields.io/badge/license-MIT-brightgreen.svg
+[version-badge]: https://img.shields.io/packagist/v/sebastiaanluca/laravel-conditional-providers.svg?label=stable
+[license-badge]: https://img.shields.io/badge/license-MIT-informational.svg
 [travis-badge]: https://img.shields.io/travis/sebastiaanluca/laravel-conditional-providers/master.svg
-[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-conditional-providers.svg
+[downloads-badge]: https://img.shields.io/packagist/dt/sebastiaanluca/laravel-conditional-providers.svg?color=brightgreen
+[stars-badge]: https://img.shields.io/github/stars/sebastiaanluca/laravel-conditional-providers.svg?color=brightgreen
 
 [blog-link-badge]: https://img.shields.io/badge/link-blog-lightgrey.svg
 [packages-link-badge]: https://img.shields.io/badge/link-other_packages-lightgrey.svg
 [twitter-profile-badge]: https://img.shields.io/twitter/follow/sebastiaanluca.svg?style=social
 [twitter-share-badge]: https://img.shields.io/twitter/url/http/shields.io.svg?style=social
 
+[link-github]: https://github.com/sebastiaanluca/laravel-conditional-providers
 [link-packagist]: https://packagist.org/packages/sebastiaanluca/laravel-conditional-providers
 [link-travis]: https://travis-ci.org/sebastiaanluca/laravel-conditional-providers
+[link-twitter-share]: https://twitter.com/intent/tweet?text=Check%20out%20this%20extensive%20set%20of%20generic%20PHP%20helper%20functions%20and%20classes!%20Via%20@sebastiaanluca%20https://github.com/sebastiaanluca/laravel-conditional-providers
 [link-contributors]: ../../contributors
 
 [link-portfolio]: https://www.sebastiaanluca.com
 [link-blog]: https://blog.sebastiaanluca.com
 [link-packages]: https://packagist.org/packages/sebastiaanluca
 [link-twitter]: https://twitter.com/sebastiaanluca
-[link-twitter-share]: https://twitter.com/intent/tweet?text=Load%20Laravel%20service%20providers%20based%20on%20the%20current%20environment.%20https%3A%2F%2Fgithub.com%2Fsebastiaanluca%2Flaravel-helpers%20via%20%40sebastiaanluca
 [link-github-profile]: https://github.com/sebastiaanluca
 [link-author-email]: mailto:hello@sebastiaanluca.com
