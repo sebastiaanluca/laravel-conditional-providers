@@ -4,7 +4,6 @@ php:
   - "7.2"
   - "7.3"
   - 7.4snapshot
-  - nightly
 
 cache:
   directories:
@@ -22,7 +21,6 @@ env:
 matrix:
   allow_failures:
     - php: 7.4snapshot
-    - php: nightly
     - env: LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-lowest" MINIMUM_STABILITY="dev"
     - env: LARAVEL_VERSION="dev-master" ORCHESTRA_VERSION="dev-master" COMPOSER_FLAGS="--prefer-stable" MINIMUM_STABILITY="dev"
   fast_finish: true
