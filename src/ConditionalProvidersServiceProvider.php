@@ -18,7 +18,10 @@ class ConditionalProvidersServiceProvider extends ServiceProvider
     {
         $environment = $this->app->environment();
 
-        $providers = $this->app['config']->get('app.' . $environment . '_providers', []);
+        $providers = array_unique(array_merge(
+            $this->app['config']->get('app.providers', []),
+            $this->app['config']->get('app.' . $environment . '_providers', [])
+        ));
 
         foreach ($providers as $provider) {
             $this->app->register($provider);
